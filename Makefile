@@ -12,54 +12,54 @@
 
 NAME = minishell
 
-SRC =	./src/main.c \
-		./src/exec/pipeline.c \
-		./src/exec/pipeline2.c \
-		./src/exec/pipeline3.c \
-		./src/exec/pipeline4.c \
-		./src/exec/executor.c \
-		./src/exec/executor2.c \
-		./src/exec/signal.c \
- 		./src/exec/exec_builtins.c \
-		./src/exec/redir.c \
-		./src/exec/redir_utils.c \
-		./src/exec/heredoc.c \
-		./src/exec/heredoc_utils.c \
-		./src/exec/heredoc_expand.c \
-		./src/exec/heredoc_filling.c \
-		./src/exec/free.c \
-		./src/exec/free_utils.c \
-		./src/parsing/lexer.c \
-		./src/parsing/lexer_utils.c \
-		./src/parsing/lexer_utils2.c \
-		./src/parsing/lexer_utils3.c \
-		./src/parsing/lexer_utils4.c \
-		./src/parsing/parser.c\
-		./src/parsing/parser_utils.c\
-		./src/parsing/parser_utils2.c\
-		./src/parsing/parser_utils3.c\
-		./src/parsing/parser_utils4.c\
- 		./src/parsing/expander.c \
- 		./src/parsing/expander_utils.c \
- 		./src/parsing/expander_utils2.c \
- 		./src/parsing/expander_utils3.c \
- 		./src/parsing/expander_utils4.c \
- 		./src/parsing/handle_quotes.c \
- 		./src/builtins/echo.c \
-		./src/builtins/pwd.c \
-		./src/builtins/cd.c \
-		./src/builtins/env.c \
-		./src/builtins/setenv.c \
-		./src/builtins/export.c \
-		./src/builtins/export_no_arg.c \
-		./src/builtins/unset.c \
-		./src/builtins/exit.c \
-		./src/builtins/errors.c \
-		./src/builtins/msg_error.c \
-		./src/builtins/ft_atol.c \
-		./src/builtins/ft_strcmp.c \
+SRCS =	./srcs/main.c \
+		./srcs/exec/pipeline.c \
+		./srcs/exec/pipeline2.c \
+		./srcs/exec/pipeline3.c \
+		./srcs/exec/pipeline4.c \
+		./srcs/exec/executor.c \
+		./srcs/exec/executor2.c \
+		./srcs/exec/signal.c \
+ 		./srcs/exec/exec_builtins.c \
+		./srcs/exec/redir.c \
+		./srcs/exec/redir_utils.c \
+		./srcs/exec/heredoc.c \
+		./srcs/exec/heredoc_utils.c \
+		./srcs/exec/heredoc_expand.c \
+		./srcs/exec/heredoc_filling.c \
+		./srcs/exec/free.c \
+		./srcs/exec/free_utils.c \
+		./srcs/parsing/lexer.c \
+		./srcs/parsing/lexer_utils.c \
+		./srcs/parsing/lexer_utils2.c \
+		./srcs/parsing/lexer_utils3.c \
+		./srcs/parsing/lexer_utils4.c \
+		./srcs/parsing/parser.c\
+		./srcs/parsing/parser_utils.c\
+		./srcs/parsing/parser_utils2.c\
+		./srcs/parsing/parser_utils3.c\
+		./srcs/parsing/parser_utils4.c\
+ 		./srcs/parsing/expander.c \
+ 		./srcs/parsing/expander_utils.c \
+ 		./srcs/parsing/expander_utils2.c \
+ 		./srcs/parsing/expander_utils3.c \
+ 		./srcs/parsing/expander_utils4.c \
+ 		./srcs/parsing/handle_quotes.c \
+ 		./srcs/builtins/echo.c \
+		./srcs/builtins/pwd.c \
+		./srcs/builtins/cd.c \
+		./srcs/builtins/env.c \
+		./srcs/builtins/setenv.c \
+		./srcs/builtins/export.c \
+		./srcs/builtins/export_no_arg.c \
+		./srcs/builtins/unset.c \
+		./srcs/builtins/exit.c \
+		./srcs/builtins/errors.c \
+		./srcs/builtins/msg_error.c \
+		./srcs/builtins/ft_atol.c \
+		./srcs/builtins/ft_strcmp.c
 	
-OBJ = $(SRC:.c=.o)
+OBJS = $(SRCS:.c=.o)
 
 LIBFT = ./libft
 
@@ -75,7 +75,7 @@ libft:
 	make -C $(LIBFT)
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJS)
 	make -C $(LIBFT) clean
 
 fclean: clean
@@ -84,6 +84,6 @@ fclean: clean
 
 re: fclean all
 
-$(NAME): $(SRC) $(OBJ)
+$(NAME): $(SRCS) $(OBJS)
 	make -C $(LIBFT)
-	$(CC) $(OBJ) $(LIBFT)/libft.a -lreadline -L /Users/$$USER/.brew/opt/readline/lib -o $(NAME) 
+	$(CC) $(OBJS) $(LIBFT)/libft.a -lreadline -L /Users/$$USER/.brew/opt/readline/lib -o $(NAME)
