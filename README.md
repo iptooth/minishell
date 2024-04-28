@@ -1,2 +1,2 @@
 # minishell
-simple bash shell written in C
+This project involves writing your own bash shell implementation in C
